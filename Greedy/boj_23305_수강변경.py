@@ -27,8 +27,8 @@ for i in range(n):  # want 배열 탐색
                 break
 
 
-print(have)
-print(want)
+#print(have)
+#print(want)
 print(result)
 
 

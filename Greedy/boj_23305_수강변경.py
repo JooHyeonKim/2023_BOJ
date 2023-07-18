@@ -22,7 +22,7 @@ for i in range(n):  # want 배열 탐색
             if have[j] == want[j]:
                 result -= 1
                 have[j] = -1  # 이후에 교환되지 않도록 -1로 설정
-                want[j] = -1
+                want[j] = -1  # 바꿀 대상을 찾지 않아도 되니까 -1로 설정
 
             break
 

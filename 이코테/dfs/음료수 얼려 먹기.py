@@ -11,7 +11,11 @@ def dfs(i, j):
     if i <= -1 or i >= n or j <= -1 or j >= m:
         return False
 
+<<<<<<< HEAD
     if graph[i][j] == 0: # 0이면
+=======
+    if graph[i][j] == 0:
+>>>>>>> refs/remotes/origin/main
 
         graph[i][j] = 1
         dfs(i, j-1)  # 왼쪽

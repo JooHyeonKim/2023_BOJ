@@ -9,42 +9,26 @@ def dfs():
 
     queue = deque()
     queue.append(n)
+    visited[n] = True
+
     global cnt
 
     while queue:
-
         x = queue.popleft()
-        if x == k and min == dist[x]:
+
+        if x == k:
             cnt += 1
+            continue
 
-        if 2*x < max and not visited[2*x]:
-            dist[2*x] = dist[x] + 1
-
-            if 2*x == k:
-                min = dist[2*x]
-            else:
-                visited[2 * x] = True
-
-            queue.append(2*x)
-
-        if  x+1 < max and visited[x+1]:
-            dist[x+1] = dist[x] + 1
-            if x+1 == k:
-                min = dist[x+1]
-            else:
-                visited[x+1] = True
-            queue.append(x+1)
-
-        if x-1 >= 0 and not visited[x-1]:
-            dist[x-1] = dist[x] + 1
-            if x-1 == k:
-                min = dist[x-1]
-            else:
-                visited[x - 1] = True
-            queue.append(x-1)
+        for nx in (2*x, x+1, x-1):
+            if 0 <= nx < max and (not visited[nx] or dist[nx] == dist[x]+1):
+                visited[nx] = True
+                queue.append(nx)
+                dist[nx] = dist[x] + 1
 
 
 dfs()
+
 print(dist[k])
 print(cnt)
 

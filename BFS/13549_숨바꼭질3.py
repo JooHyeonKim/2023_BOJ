@@ -18,19 +18,19 @@ def dfs():
         if x == k:
             return
 
-        if 2 * x < max and not visited[2 * x]:
+        if 0 <= 2 * x < max and not visited[2 * x]:
             t = 2 * x
             dist[t] = dist[x]
             visited[t] = True
             queue.append(t)
 
-        if (x - 1) >= 0 and not visited[x - 1]:
+        if 0 <= x - 1 < max and not visited[x - 1]:
             t = x - 1
             dist[t] = dist[x] + 1
             visited[t] = True
             queue.append(t)
 
-        if (x + 1) >= 0 and not visited[x + 1]:
+        if 0 <= (x + 1) < max and not visited[x + 1]:
             t = x + 1
             dist[t] = dist[x] + 1
             visited[t] = True

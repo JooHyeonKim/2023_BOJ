@@ -18,6 +18,7 @@ def dfs():
 
         if x == k:
             cnt += 1
+            continue
 
         for nx in (2*x, x+1, x-1):
             if 0 <= nx < max and (not visited[nx] or dist[nx] == dist[x]+1):

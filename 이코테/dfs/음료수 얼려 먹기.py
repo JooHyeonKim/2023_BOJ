@@ -28,7 +28,6 @@ def dfs(i, j):
     return False
 
 
-
 for i in range(n):
     for j in range(m):
         if dfs(i, j) == True:

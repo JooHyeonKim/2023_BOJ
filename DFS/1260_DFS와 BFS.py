@@ -13,9 +13,8 @@ for _ in range(m):
 
 for i in range(n+1):
     graph[i].sort()
-    print(graph[i])
 
-visited = [False]*(n+1)
+
 def bfs():
     queue = deque()
     queue.append(v)
@@ -30,4 +29,22 @@ def bfs():
                 visited[nx] = True
 
 
+def dfs(v):
+    visited[v] = True
+    print(v, end=' ')
+
+    for x in graph[v]:
+        if not visited[x]:
+            dfs(x)
+
+
+visited = [False]*(n+1)
+dfs(v)
+
+print()
+
+visited = [False]*(n+1)
 bfs()
+
+
+

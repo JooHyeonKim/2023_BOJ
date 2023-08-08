@@ -25,11 +25,16 @@ def bfs(i, j):
     queue = deque()
     queue.append((i,j))
     visited[i][j] = 1
-    mx =i
+    min_x = i
+    min_y = j
+    mx = i
     my = j
 
     while queue:
         x, y = queue.popleft()
+        if x < min_x : min_x = x
+        if y < min_y : min_y = y
+
         if x > mx : mx = x
         if y > my : my = y
         cnt += 1
@@ -45,30 +50,25 @@ def bfs(i, j):
                 visited[nx][ny] = visited[x][y] + 1
                 queue.append((nx, ny))
 
-    return mx, my # 끝 점
+    return min_x, min_y, mx, my # 끝 점
 
 result = "dd"
-
-def p():
-    for i in visited:
-        print(i)
 
 
 check = True
 for i in range(n):
     for j in range(m):
-        p()
-        print()
+
         if visited[i][j] == -1:
             cnt=0
-            a, b = bfs(i,j)
-            length = b-j+1
-            height = a-i+1
-            print('cnt = ', cnt, ' 넓이 = ',length*height)
+            a1, b1, a2, b2 = bfs(i,j)
+            length = b2-b1+1
+            height = a2-a1+1
+            #print('cnt = ', cnt, ' 넓이 = ', length*height)
 
             if length*height != cnt:
                 result = "BaboBabo"
-                check = True
+                check = False
                 break
     if not check:
         break

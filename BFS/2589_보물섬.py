@@ -8,11 +8,13 @@ for _ in range(n):
 dx = [-1,1,0,0]
 dy = [0,0,-1,1]
 def bfs(i,j):
-
+    dist = [[0] * m for _ in range(n)]
     queue = deque()
     queue.append((i,j))
-    dist = [[0] * m for _ in range(n)]
+    dist[i][j] = 1
+
     max_d = 0
+
 
     while queue:
         x, y = queue.popleft()
@@ -30,6 +32,8 @@ def bfs(i,j):
                 dist[nx][ny] = dist[x][y]+1
                 queue.append((nx,ny))
 
+    # for d in dist:
+    #     print(d)
     return max_d
 
 max_dist=0
@@ -40,5 +44,5 @@ for i in range(n):
             if max_dist < tmp:
                 max_dist = tmp
 
-print(max_dist)
+print(max_dist-1)
 
